@@ -2,19 +2,19 @@
 description: Create structured Product Requirements Document with clarifying questions
 argument-hint: [feature description]
 ---
-version: "1.0.0"
+version: "1.0.1"
 re4c_version: "1.0.0"
 category: "core"
 last_updated: "2025-09-08"
 
-# /create-prd - AI Dev Tasks Workflow
-**Source**: ai-dev-tasks repository workflow  
+# /create-prd - Product Requirements Document Creation
+**Source**: re4c core workflow  
 **Purpose**: Create structured Product Requirements Document with clarifying questions  
-**Next Step**: Use `/generate-tasks` after PRD completion
+**Next Step**: Use `/create-drd` after PRD completion
 
 Please use the structured workflow to help me create a PRD for a new feature.
 
-## Process (Exact from source)
+## Process Overview
 1. **Receive Initial Prompt:** The user provides a brief description or request for a new feature or functionality.
 2. **Ask Clarifying Questions:** Before writing the PRD, the AI *must* ask clarifying questions to gather sufficient detail. The goal is to understand the "what" and "why" of the feature, not necessarily the "how" (which the developer will figure out). Make sure to provide options in letter/number lists so I can respond easily with my selections.
 3. **Generate PRD:** Based on the initial prompt and the user's answers to the clarifying questions, generate a PRD using the structure outlined below.
