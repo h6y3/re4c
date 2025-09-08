@@ -1,0 +1,18 @@
+{
+  "re4c_version": "1.0.0",
+  "installation_date": null,
+  "last_update_check": null,
+  "install_location": null,
+  "installed_files": {},
+  "claude_md": {
+    "version": null,
+    "installed_date": null,
+    "backup_path": null,
+    "customized": false
+  },
+  "installation_options": {
+    "auto_backup": true,
+    "interactive_conflicts": true,
+    "preserve_customizations": true
+  }
+}
