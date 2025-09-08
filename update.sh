@@ -32,12 +32,16 @@ print_header() {
     local current_version=$(get_installed_version)
     local new_version=$(get_repo_version)
     
+    # Format version strings with proper padding for 42-char box width
+    local current_line=$(printf "║  Current: v%-27s ║" "$current_version")
+    local latest_line=$(printf "║  Latest:  v%-27s ║" "$new_version")
+    
     echo "╔══════════════════════════════════════════╗"
     echo "║              re4c Update                 ║"
     echo "║     Rapid Engineering For Claude         ║"
     echo "║                                          ║"
-    echo "║  Current: v$current_version                     ║"
-    echo "║  Latest:  v$new_version                     ║"
+    echo "$current_line"
+    echo "$latest_line"
     echo "╚══════════════════════════════════════════╝"
     echo ""
 }
