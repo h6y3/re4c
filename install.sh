@@ -6,7 +6,7 @@
 set -e
 
 # Configuration
-RE4C_VERSION="1.0.0"
+RE4C_VERSION="1.1.0"
 CLAUDE_DIR="$HOME/.claude"
 COMMANDS_DIR="$CLAUDE_DIR/commands"
 BACKUP_DIR="$CLAUDE_DIR/backups"

@@ -4,7 +4,7 @@ description: "Universal standards and workflow guidelines for Claude Code develo
 version: "1.0.0"
 re4c_version: "1.0.0"
 category: "core-standards"
-last_updated: "2025-01-09"
+last_updated: "2025-09-08"
 type: "global-config"
 ---
 
@@ -238,7 +238,7 @@ All documentation files MUST include frontmatter:
 ---
 title: "Document Title"
 description: "Brief description of content and purpose"
-last_updated: "2025-01-15"
+last_updated: "2025-09-08"
 status: "current|draft|deprecated"
 audience: "developer|user|ops"
 ---

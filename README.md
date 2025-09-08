@@ -5,6 +5,67 @@
 
 **re4c** (Rapid Engineering For Claude) is a comprehensive, turnkey command collection and workflow system for Claude Code that implements best practices for AI-assisted software development.
 
+## 🙏 Inspiration & Credits
+
+re4c is inspired by and builds upon the excellent work of [Ryan Carson](https://github.com/snarktank) and the [ai-dev-tasks repository](https://github.com/snarktank/ai-dev-tasks). The core workflow concepts were originally demonstrated in Ryan's [YouTube video on AI development workflows](https://www.youtube.com/watch?v=fD4ktSkNCw4).
+
+While many of the original commands have evolved significantly, the fundamental insight remains: **AI-assisted development requires systematic workflows, proper context building, and rigorous validation**.
+
+### Key Philosophical Extensions
+
+#### 1. Context-First Development
+Much of rapid engineering requires **building context before beginning implementation**. This is why re4c emphasizes the sequential use of:
+
+- **`/create-prd`** - Establishes business context and requirements
+- **`/create-drd`** - Defines design context and user experience  
+- **`/create-trd`** - Specifies technical context and architecture
+
+This sequence ensures the AI has comprehensive context before generating implementation tasks, preventing architectural drift and ensuring requirements alignment.
+
+#### 2. Shape Up Methodology Integration
+re4c borrows heavily from [Shape Up](https://basecamp.com/shapeup) by Basecamp, particularly:
+
+- **Fixed Time, Variable Scope**: Complexity budgets prevent endless feature creep
+- **Vertical Slices**: Each slice delivers user value, not just technical milestones
+- **Circuit Breakers**: Built-in simplification strategies when complexity exceeds budget
+- **No Estimation Time**: AI-appropriate complexity scoring instead of time estimates
+
+The **Slice methodology** is core to preventing unusable builds and drift. Each vertical slice:
+- Delivers working, demonstrable functionality
+- Maintains deployable state
+- Can be validated independently
+- Has clear success criteria
+
+#### 3. Agent-Does-All-Work Philosophy
+re4c assumes the AI agent should handle the complete development lifecycle:
+
+- **Test-Driven Development (TDD)**: Mandatory Red-Green-Refactor cycle
+- **Multi-Agent Validation**: Specialized validation agents with blocking authority
+- **MCP Integration**: Leverages tools like Playwright for automated UI testing
+- **Quality Gates**: No progression without validation approval
+
+This approach ensures consistent quality while freeing developers to focus on high-level design and business requirements rather than implementation details.
+
+### Additional Key Features
+
+#### Multi-Agent Orchestration
+re4c includes advanced **multi-agent workflow capabilities** (`/multiagent-worktree`) that can coordinate parallel development streams using git worktrees. This allows complex features to be developed by multiple AI agents simultaneously while maintaining code quality and preventing conflicts.
+
+#### Universal Development Standards
+The system enforces **production-ready development standards** through a comprehensive `universal-claude.md` configuration that ensures:
+- Type safety and comprehensive validation
+- Multi-layer testing strategies (unit → integration → E2E)
+- Automated CI/CD pipelines with quality gates
+- Production-first mindset with observability and error handling
+
+#### Validation-First Quality Gates
+Every slice completion requires approval from **specialized validation agents**:
+- **Architecture Review**: Technical implementation and maintainability
+- **TDD Compliance**: Proper test-driven development practices
+- **Security Scanning**: Vulnerability assessment and secure coding practices
+- **UI Testing**: Playwright automation with visual regression testing
+- **Workspace Cleanup**: Repository integrity and development environment hygiene
+
 ## 🎯 What is re4c?
 
 re4c provides a complete toolkit of 42 carefully crafted commands organized around a **Test-Driven Development (TDD)** workflow with **multi-agent validation** and **systematic knowledge capture**. It transforms Claude Code from a general-purpose AI assistant into a specialized engineering partner that enforces quality gates, maintains clean code practices, and captures learnings systematically.
@@ -18,6 +79,101 @@ re4c provides a complete toolkit of 42 carefully crafted commands organized arou
 - **🔧 Resource Utilization**: MCP Context7, script discovery, proper URL management
 - **🧹 Workspace Cleanup**: Repository integrity validation
 - **📊 AI-Appropriate Estimation**: Complexity scoring instead of time-based estimates
+
+## 📋 Philosophy & Core Concepts
+
+re4c implements a systematic approach to AI-assisted development based on proven methodologies:
+
+### Test-Driven Development (TDD)
+- **Red**: Write failing tests first
+- **Green**: Write minimal code to pass tests  
+- **Refactor**: Improve code while keeping tests green
+- **Mandatory**: No code without tests, no exceptions
+
+### Complexity-Based Estimation  
+Instead of time estimates (inappropriate for AI), re4c uses complexity scoring:
+- **1-3**: Simple changes, quick implementation
+- **4-6**: Moderate complexity, some research needed
+- **7-9**: Complex features, multiple components
+- **10**: Maximum complexity, consider breaking down
+
+### Multi-Agent Validation
+Quality gates prevent completion until all validation agents approve:
+- Ensures consistent quality
+- Catches issues early
+- Maintains architectural integrity
+- Enforces testing standards
+
+### Systematic Learning Capture
+Mandatory retrospectives after every slice:
+- Document lessons learned
+- Update project understanding  
+- Adapt future planning
+- Prevent knowledge loss
+
+### Slices vs Tasks
+- **Tasks**: Traditional sequential work items
+- **Slices**: Vertical cuts through all application layers that deliver user value
+- **Why Slices**: Better for AI development, maintain deployable state, easier validation
+
+### Validation Agents
+Specialized agents with expertise in specific domains:
+- **Architecture**: System design, coupling, scalability
+- **TDD**: Test quality, coverage, Red-Green-Refactor compliance  
+- **UI Testing**: Playwright automation, screenshot validation
+- **UX Evaluation**: User experience, accessibility, usability
+- **Cleanup**: Repository integrity, workspace cleanliness
+
+### Resource Utilization
+re4c mandates proper use of available tools:
+- **MCP Context7**: API documentation and framework knowledge
+- **Playwright**: Web UI testing and navigation
+- **Script Discovery**: Use existing project scripts
+- **Correct URLs**: Always production URLs, never development
+
+## 🗂️ Command Organization
+
+Commands are organized into logical categories:
+
+### Core Workflow (8 commands)
+Essential workflow commands for the TDD development cycle:
+- `generate-tasks.md` - Generate TDD-first task lists from PRDs
+- `generate-slices.md` - Create vertical slices with complexity scoring
+- `process-slices.md` - Implement slices with mandatory validation  
+- `process-slices-multiagent.md` - Multi-agent slice processing
+- `create-prd.md`, `create-drd.md`, `create-trd.md` - Requirements documentation
+- `re4c-help.md` - re4c workflow assistance and command guide
+
+### Validation Framework (6 commands)
+Multi-agent validation system with blocking authority:
+- `validate-slice-completion.md` - Orchestrates all validation agents
+- `tdd-test-first.md` - Enforces Red-Green-Refactor TDD cycle
+- `cleanup-workspace-agent.md` - Repository integrity validation
+- `slice-retrospective.md` - Mandatory learning capture
+- `architecture-review.md` - Deep architecture analysis
+- `security-scan.md` - Security vulnerability assessment
+
+### Development Tools (18 commands)
+Framework-specific and general development utilities:
+- Framework setup: `next-app.md`, `react-component.md`, `django-api.md`, `fastapi-setup.md`
+- Database: `neon-setup.md`, `db-migrate.md`
+- Code quality: `lint-setup.md`, `pre-commit-hooks.md`, `test-harness.md`
+- Git workflow: `create-pr.md`, `fix-github-issue.md`, `smart-commit.md`
+- Multi-agent: `multiagent-worktree.md`
+- Standards: `universal-claude.md`, `setup-claude-standards.md`
+
+### Deployment (5 commands)
+Production deployment and monitoring:
+- `vercel-deploy.md`, `railway-deploy.md` - Platform deployment
+- `docker-optimize.md` - Container optimization
+- `monitoring-setup.md` - Observability setup
+- `vercel-scan.md` - Deployment analysis
+
+### Documentation (5 commands)
+Documentation management and organization:
+- `docs-cleanup.md`, `docs-organize.md`, `docs-update.md` - Doc maintenance
+- `meta-docs-standards.md` - Documentation standards
+- `prepare-open-source.md` - Open source preparation
 
 ## 📦 Installation
 
@@ -60,50 +216,6 @@ The installer provides several options for handling conflicts:
 - **View Differences**: Shows diffs between existing and new versions before deciding
 - **Interactive Prompts**: Handles each conflict individually for maximum control
 
-## 🗂️ Command Organization
-
-Commands are organized into logical categories:
-
-### Core Workflow (8 commands)
-Essential workflow commands for the TDD development cycle:
-- `generate-tasks.md` - Generate TDD-first task lists from PRDs
-- `generate-slices.md` - Create vertical slices with complexity scoring
-- `process-slices.md` - Implement slices with mandatory validation  
-- `process-slices-multiagent.md` - Multi-agent slice processing
-- `create-prd.md`, `create-drd.md`, `create-trd.md` - Requirements documentation
-- `ai-dev-help.md` - AI development assistance
-
-### Validation Framework (6 commands)
-Multi-agent validation system with blocking authority:
-- `validate-slice-completion.md` - Orchestrates all validation agents
-- `tdd-test-first.md` - Enforces Red-Green-Refactor TDD cycle
-- `cleanup-workspace-agent.md` - Repository integrity validation
-- `slice-retrospective.md` - Mandatory learning capture
-- `architecture-review.md` - Deep architecture analysis
-- `security-scan.md` - Security vulnerability assessment
-
-### Development Tools (18 commands)
-Framework-specific and general development utilities:
-- Framework setup: `next-app.md`, `react-component.md`, `django-api.md`, `fastapi-setup.md`
-- Database: `neon-setup.md`, `db-migrate.md`
-- Code quality: `lint-setup.md`, `pre-commit-hooks.md`, `test-harness.md`
-- Git workflow: `create-pr.md`, `fix-github-issue.md`, `smart-commit.md`
-- Multi-agent: `multiagent-worktree.md`
-- Standards: `universal-claude.md`, `setup-claude-standards.md`
-
-### Deployment (5 commands)
-Production deployment and monitoring:
-- `vercel-deploy.md`, `railway-deploy.md` - Platform deployment
-- `docker-optimize.md` - Container optimization
-- `monitoring-setup.md` - Observability setup
-- `vercel-scan.md` - Deployment analysis
-
-### Documentation (5 commands)
-Documentation management and organization:
-- `docs-cleanup.md`, `docs-organize.md`, `docs-update.md` - Doc maintenance
-- `meta-docs-standards.md` - Documentation standards
-- `prepare-open-source.md` - Open source preparation
-
 ## 🚀 Quick Start Guide
 
 ### 1. Basic Development Workflow
@@ -144,78 +256,6 @@ Every slice completion requires validation from:
 # After every slice (mandatory)
 /slice-retrospective slice-name
 ```
-
-## 📋 Development Philosophy
-
-re4c implements a systematic approach to AI-assisted development:
-
-### Test-Driven Development (TDD)
-- **Red**: Write failing tests first
-- **Green**: Write minimal code to pass tests  
-- **Refactor**: Improve code while keeping tests green
-- **Mandatory**: No code without tests, no exceptions
-
-### Complexity-Based Estimation  
-Instead of time estimates (inappropriate for AI), re4c uses complexity scoring:
-- **1-3**: Simple changes, quick implementation
-- **4-6**: Moderate complexity, some research needed
-- **7-9**: Complex features, multiple components
-- **10**: Maximum complexity, consider breaking down
-
-### Multi-Agent Validation
-Quality gates prevent completion until all validation agents approve:
-- Ensures consistent quality
-- Catches issues early
-- Maintains architectural integrity
-- Enforces testing standards
-
-### Systematic Learning Capture
-Mandatory retrospectives after every slice:
-- Document lessons learned
-- Update project understanding  
-- Adapt future planning
-- Prevent knowledge loss
-
-## 🔄 Updates
-
-Keep your re4c installation up to date:
-
-```bash
-# Check for and apply updates
-./update.sh
-
-# Automatic update (no prompts)
-./update.sh --auto
-```
-
-The update system:
-- Compares file versions automatically
-- Shows what will be updated before proceeding
-- Creates backups of replaced files
-- Handles new commands and obsolete files
-- Updates global CLAUDE.md configuration
-
-## 📚 Core Concepts
-
-### Slices vs Tasks
-- **Tasks**: Traditional sequential work items
-- **Slices**: Vertical cuts through all application layers that deliver user value
-- **Why Slices**: Better for AI development, maintain deployable state, easier validation
-
-### Validation Agents
-Specialized agents with expertise in specific domains:
-- **Architecture**: System design, coupling, scalability
-- **TDD**: Test quality, coverage, Red-Green-Refactor compliance  
-- **UI Testing**: Playwright automation, screenshot validation
-- **UX Evaluation**: User experience, accessibility, usability
-- **Cleanup**: Repository integrity, workspace cleanliness
-
-### Resource Utilization
-re4c mandates proper use of available tools:
-- **MCP Context7**: API documentation and framework knowledge
-- **Playwright**: Web UI testing and navigation
-- **Script Discovery**: Use existing project scripts
-- **Correct URLs**: Always production URLs, never development
 
 ## 🛠️ Configuration
 
@@ -259,6 +299,25 @@ Coordinate development across repositories:
 # Set up multi-repo development environment
 /multiagent-worktree --repos "frontend,backend,shared"
 ```
+
+## 🔄 Updates
+
+Keep your re4c installation up to date:
+
+```bash
+# Check for and apply updates
+./update.sh
+
+# Automatic update (no prompts)
+./update.sh --auto
+```
+
+The update system:
+- Compares file versions automatically
+- Shows what will be updated before proceeding
+- Creates backups of replaced files
+- Handles new commands and obsolete files
+- Updates global CLAUDE.md configuration
 
 ## 🔍 Troubleshooting
 

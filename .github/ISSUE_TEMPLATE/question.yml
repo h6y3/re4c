@@ -1,0 +1,88 @@
+name: Question
+description: Ask a question about re4c usage, workflows, or concepts
+title: "[Question]: "
+labels: ["question", "needs-response"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question about using re4c? We're here to help! Please provide as much context as possible.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know about re4c?
+      placeholder: Ask your question here
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      description: What area is your question about?
+      options:
+        - Getting Started (installation, basic setup)
+        - Core Workflow (PRD/DRD/TRD, slices, tasks)
+        - Command Usage (how to use specific commands)
+        - Validation Framework (quality gates, testing agents)
+        - Development Tools (framework setup, integrations)
+        - Best Practices (workflows, methodologies)
+        - Troubleshooting (errors, issues, debugging)
+        - Philosophy/Concepts (understanding re4c principles)
+        - Contributing (how to contribute to re4c)
+        - Other (please specify in question)
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What are you trying to accomplish? What have you tried so far?
+      placeholder: |
+        - What I'm trying to do: ...
+        - What I've tried: ...
+        - What I expected: ...
+        - Where I'm stuck: ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment (if relevant)
+      description: Information about your setup
+      placeholder: |
+        - OS: [e.g. macOS 13.0, Ubuntu 22.04]
+        - re4c version: [e.g. 1.0.0]
+        - Claude Code version: [if applicable]
+        - Project type: [e.g. Next.js, Python, etc.]
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples or Code (if applicable)
+      description: Any relevant commands, code, or examples
+      placeholder: Paste any relevant commands, error messages, or examples here
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues and discussions for similar questions
+          required: true
+        - label: I have checked the README and documentation
+          required: true
+        - label: This is a question about using re4c (not a bug report or feature request)
+          required: true

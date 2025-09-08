@@ -2,8 +2,8 @@
 description: Generate structured task list from existing PRD using two-phase workflow
 argument-hint: [prd-filename or leave empty to see available PRDs]
 ---
-version: "1.0.0"
-re4c_version: "1.0.0"
+version: "1.1.0"
+re4c_version: "1.1.0"
 category: "core"
 last_updated: "2025-09-08"
 

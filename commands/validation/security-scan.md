@@ -119,7 +119,7 @@ Security report format:
 
 ```json
 {
-  "scan_date": "2025-01-15T10:30:00Z",
+  "scan_date": "2025-09-08T10:30:00Z",
   "project": "my-app",
   "vulnerabilities": {
     "critical": 0,

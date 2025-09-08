@@ -50,7 +50,7 @@ All documentation files MUST include frontmatter:
 ---
 title: "Document Title"
 description: "Brief description of content and purpose"
-last_updated: "2025-01-15"
+last_updated: "2025-09-08"
 status: "current|draft|deprecated"
 audience: "developer|user|ops"
 ---

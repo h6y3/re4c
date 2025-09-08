@@ -1,0 +1,127 @@
+name: Feature Request
+description: Suggest a new feature or improvement for re4c
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! Please help us understand your idea by filling out this form.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Description
+      description: What problem does this feature solve? What workflow pain point does it address?
+      placeholder: Describe the problem or limitation you're experiencing
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How would you like this problem to be solved?
+      placeholder: Describe your ideal solution or feature
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feature Category
+      description: Which category best fits this feature?
+      options:
+        - Core Workflow (PRD/DRD/TRD, slices, tasks)
+        - Validation Framework (quality gates, testing)
+        - Development Tools (framework setup, utilities)
+        - Deployment (platform deployment, monitoring)
+        - Documentation (docs management, standards)
+        - Installation/Setup (installation process, configuration)
+        - Other (please specify in description)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority Level
+      description: How important is this feature to your workflow?
+      options:
+        - Low - Nice to have enhancement
+        - Medium - Would improve my workflow significantly
+        - High - Critical for my use case
+        - Urgent - Blocking my ability to use re4c effectively
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: What workarounds or alternative solutions have you considered?
+      placeholder: Describe any workarounds you're currently using or other solutions you've considered
+    validations:
+      required: false
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case Example
+      description: Can you provide a specific example of how this feature would be used?
+      placeholder: |
+        Example workflow:
+        1. User runs '/new-command ...'
+        2. Command does X
+        3. Result is Y
+        4. This helps by Z
+    validations:
+      required: false
+
+  - type: textarea
+    id: integration
+    attributes:
+      label: Integration Considerations
+      description: How should this feature integrate with existing re4c commands and workflows?
+      placeholder: Consider how this fits with PRD/DRD/TRD workflow, validation framework, etc.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: philosophy
+    attributes:
+      label: re4c Philosophy Alignment
+      description: Please confirm this feature aligns with re4c principles
+      options:
+        - label: This feature supports context-first development (PRD → DRD → TRD)
+          required: false
+        - label: This feature fits the agent-does-all-work philosophy
+          required: false
+        - label: This feature maintains or enhances quality gates
+          required: false
+        - label: This feature follows vertical slice methodology
+          required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information about this feature request
+      placeholder: Add any other context, screenshots, or examples that would help explain the feature
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues to make sure this feature hasn't been requested before
+          required: true
+        - label: I understand that feature requests are subject to maintainer review and prioritization
+          required: true
+        - label: I would be willing to help implement this feature if accepted
+          required: false

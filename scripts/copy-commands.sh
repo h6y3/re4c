@@ -20,7 +20,7 @@ get_category() {
     
     case "$filename" in
         # Core Workflow
-        "generate-tasks.md"|"generate-slices.md"|"process-slices.md"|"process-slices-multiagent.md"|"create-prd.md"|"create-drd.md"|"create-trd.md"|"ai-dev-help.md")
+        "generate-tasks.md"|"generate-slices.md"|"process-slices.md"|"process-slices-multiagent.md"|"create-prd.md"|"create-drd.md"|"create-trd.md"|"re4c-help.md")
             echo "core"
             ;;
         # Validation
