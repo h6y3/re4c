@@ -81,17 +81,20 @@ check_for_updates() {
     local installed_version=$(get_installed_version)
     local repo_version=$(get_repo_version)
     
-    log_info "Version check:"
+    log_info "System version check:"
     log_info "  Installed: $installed_version"
     log_info "  Available: $repo_version"
     
-    if [[ $(compare_versions "$repo_version" "$installed_version") != "1" ]]; then
-        log_success "You're already running the latest version!"
-        log_info "No updates available."
-        exit 0
+    local system_updates_available=false
+    if [[ $(compare_versions "$repo_version" "$installed_version") == "1" ]]; then
+        system_updates_available=true
+        log_info "System updates available!"
+    else
+        log_info "System version is up to date."
     fi
     
-    log_info "Updates available!"
+    # Always check individual command versions regardless of system version
+    log_info "Checking individual command versions..."
     return 0
 }
 
@@ -169,6 +172,13 @@ analyze_updates() {
             echo "   • $obsolete (no longer in repository)"
         done
         echo ""
+    fi
+    
+    # Check if any updates are available
+    if [[ ${#updates[@]} -eq 0 && ${#new_files[@]} -eq 0 && ${#obsolete_files[@]} -eq 0 ]]; then
+        log_success "All commands are up to date!"
+        log_info "No updates available."
+        exit 0
     fi
     
     # Store analysis results for processing
