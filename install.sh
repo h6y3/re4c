@@ -30,10 +30,7 @@ log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
 source "$SCRIPT_DIR/scripts/version-utils.sh"
 
 print_header() {
-    echo "╔══════════════════════════════════════════╗"
-    echo "║           re4c Installation              ║"
-    echo "║    Rapid Engineering For Claude v$RE4C_VERSION   ║"
-    echo "╚══════════════════════════════════════════╝"
+    echo "re4c Installation - Rapid Engineering For Claude v$RE4C_VERSION"
     echo ""
 }
 

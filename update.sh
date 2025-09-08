@@ -32,17 +32,9 @@ print_header() {
     local current_version=$(get_installed_version)
     local new_version=$(get_repo_version)
     
-    # Format version strings with proper padding for 42-char box width
-    local current_line=$(printf "║  Current: v%-27s ║" "$current_version")
-    local latest_line=$(printf "║  Latest:  v%-27s ║" "$new_version")
-    
-    echo "╔══════════════════════════════════════════╗"
-    echo "║              re4c Update                 ║"
-    echo "║     Rapid Engineering For Claude         ║"
-    echo "║                                          ║"
-    echo "$current_line"
-    echo "$latest_line"
-    echo "╚══════════════════════════════════════════╝"
+    echo "re4c Update - Rapid Engineering For Claude"
+    echo "Current: v$current_version"
+    echo "Latest:  v$new_version"
     echo ""
 }
 
@@ -195,8 +187,20 @@ apply_updates() {
         log_info "Applying command updates..."
         
         while IFS='|' read -r filename old_ver new_ver category; do
+            # Skip if category is empty or undefined
+            if [[ -z "$category" ]]; then
+                log_warning "Skipping $filename - no category defined"
+                continue
+            fi
+            
             local source_file="$SCRIPT_DIR/commands/$category/$filename"
             local dest_file="$COMMANDS_DIR/$filename"
+            
+            # Verify source file exists
+            if [[ ! -f "$source_file" ]]; then
+                log_error "Source file not found: $source_file"
+                continue
+            fi
             
             if [[ "$auto_mode" == "auto" ]]; then
                 local choice="y"
@@ -237,8 +241,20 @@ apply_updates() {
         log_info "Installing new commands..."
         
         while IFS='|' read -r filename category; do
+            # Skip if category is empty or undefined
+            if [[ -z "$category" ]]; then
+                log_warning "Skipping $filename - no category defined"
+                continue
+            fi
+            
             local source_file="$SCRIPT_DIR/commands/$category/$filename"
             local dest_file="$COMMANDS_DIR/$filename"
+            
+            # Verify source file exists
+            if [[ ! -f "$source_file" ]]; then
+                log_error "Source file not found: $source_file"
+                continue
+            fi
             
             if [[ "$auto_mode" == "auto" ]]; then
                 local choice="y"
