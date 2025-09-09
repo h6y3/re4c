@@ -218,33 +218,116 @@ The installer provides several options for handling conflicts:
 
 ## 🚀 Quick Start Guide
 
-### 1. Basic Development Workflow
+### 1. Complete Example: Building "Perspective Shift" Application
+
+We'll walk through building a real single-page web application that helps users reframe their struggles through inspirational quotes. Full sample documents are available in the `./samples` directory.
+
+#### Step 1: Create Product Requirements Document (PRD)
+
+Start by defining what you want to build. Be specific about features and requirements:
 
 ```bash
-# 1. Create product requirements documents
-/create-prd "Build a single page application that allows users to express a moment...[complete as much as you want]"
+/create-prd "Build a single-page web application with the following requirements:
 
-# 2. Generate design requirements document  
-/create-drd prd-perspective-shift.md
+**Core Functionality:**
+- Homepage with text input box prompting 'Share what you're struggling with'
+- On form submission, display response containing:
+  - 3 relevant inspirational quotes from real historical figures
+  - Reframed perspective with actionable solutions based on quotes
+  - Brief author biography for each quote
+- Copy-to-markdown functionality for each entry
+- Social media sharing buttons
 
-# 3. Generate technical requirements document  
-/create-trd prd-perspective-shift.md drd-perspective-shift.md
-
-# 3. Create development slices
-/generate-slices 
-
-# 4. Implement with TDD validation
-/process-slices
+**Technical Requirements:**
+- Responsive design (mobile-first)
+- Clean, minimal UI focusing on readability
+- Form validation and loading states
+- OpenAI API integration for quote selection and reframing
+- Text processing to match user input with relevant quotes"
 ```
 
-### 2. Multi-Agent Development
+This generates `prd-perspective-shift.md` in your `/tasks` directory.
+
+#### Step 2: Create Design Requirements Document (DRD)
+
+Transform your PRD into concrete design specifications:
+
+```bash
+/create-drd prd-perspective-shift.md
+```
+
+The AI will ask clarifying questions about:
+- Visual design preferences (colors, typography, spacing)
+- User flow and interaction patterns
+- Component hierarchy and responsive behavior
+- Error states and loading feedback
+
+This generates `drd-perspective-shift.md` with complete UI/UX specifications.
+
+#### Step 3: Create Technical Requirements Document (TRD)
+
+Convert requirements into technical architecture:
+
+```bash
+/create-trd prd-perspective-shift.md drd-perspective-shift.md
+```
+
+The AI will determine:
+- System architecture (Next.js + Supabase + OpenAI)
+- Database schema and API design
+- Integration patterns and security requirements
+- Performance targets and caching strategies
+
+This generates `trd-perspective-shift.md` with implementation details.
+
+#### Step 4: Generate Implementation Tasks or Slices
+
+Choose your development approach:
+
+**Option A: Task-Based Development**
+```bash
+/generate-tasks prd-perspective-shift.md
+# Creates detailed task list with sub-tasks
+```
+
+**Option B: Vertical Slice Development (Recommended)**
+```bash
+/generate-slices prd-perspective-shift.md 10
+# Creates vertical slices within 10 complexity points
+```
+
+#### Step 5: Begin Implementation with TDD
+
+```bash
+/process-slices 0  # Start with Slice 0 (static mockup)
+```
+
+The system will:
+1. Write tests first (Red phase)
+2. Implement features (Green phase) 
+3. Refactor code (Refactor phase)
+4. Run validation agents
+5. Take Playwright screenshots for UI testing
+
+### 2. Sample Documents
+
+Complete example documents for the "Perspective Shift" application are available in the `./samples` directory:
+
+- **`prd-perspective-shift.md`** - Full product requirements with user stories and functional specs
+- **`drd-perspective-shift.md`** - Comprehensive design specifications with component hierarchy
+- **`trd-perspective-shift.md`** - Technical architecture with database schema and API design
+- **`tasks-perspective-shift.md`** - Generated task list ready for implementation
+
+These samples demonstrate the complete workflow from requirements to implementation-ready tasks.
+
+### 3. Multi-Agent Development
 
 ```bash
 # For complex features requiring parallel development
 /process-slices-multiagent
 ```
 
-### 3. Mandatory Validation Gates
+### 4. Mandatory Validation Gates
 
 Every slice completion requires validation from:
 - **Architecture Validation Agent**: Structural integrity
@@ -253,7 +336,7 @@ Every slice completion requires validation from:
 - **UX Evaluation Agent**: User experience validation (for new UI)
 - **Cleanup Validation Agent**: Repository cleanliness
 
-### 4. Learning Capture
+### 5. Learning Capture
 
 ```bash
 # After every slice (mandatory)
