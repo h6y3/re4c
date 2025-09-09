@@ -221,14 +221,17 @@ The installer provides several options for handling conflicts:
 ### 1. Basic Development Workflow
 
 ```bash
-# 1. Create requirements documents
-/create-prd "user authentication system"
+# 1. Create product requirements documents
+/create-prd "Build a single page application that allows users to express a moment...[complete as much as you want]"
 
-# 2. Generate implementation tasks  
-/generate-tasks prd-user-auth.md
+# 2. Generate design requirements document  
+/create-drd prd-perspective-shift.md
+
+# 3. Generate technical requirements document  
+/create-trd prd-perspective-shift.md drd-perspective-shift.md
 
 # 3. Create development slices
-/generate-slices tasks-prd-user-auth.md
+/generate-slices 
 
 # 4. Implement with TDD validation
 /process-slices
