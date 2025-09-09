@@ -1,7 +1,7 @@
 # re4c - Rapid Engineering For Claude
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/user/re4c)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/h6y3/re4c)
 
 **re4c** (Rapid Engineering For Claude) is a comprehensive, turnkey command collection and workflow system for Claude Code that implements best practices for AI-assisted software development.
 
@@ -437,12 +437,12 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## 🤝 Contributing
 
-Contributions welcome! Please see [CONTRIBUTING.md](docs/CONTRIBUTING.md) for guidelines.
+Contributions welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/user/re4c/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/user/re4c/discussions)
+- **Issues**: [GitHub Issues](https://github.com/h6y3/re4c/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/h6y3/re4c/discussions)
 - **Documentation**: See the `docs/` directory
 
 ---
